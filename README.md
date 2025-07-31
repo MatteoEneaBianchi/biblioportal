@@ -1,54 +1,41 @@
-# Hugo template for Decap CMS with Netlify Identity
+# Design Jekyll Theme
 
-This is a small business template built with [Hugo](https://gohugo.io) and [Decap CMS](https://github.com/decaporg/decap-cms), designed and developed by [Darin Dimitroff](https://twitter.com/deezel), [spacefarm.digital](https://www.spacefarm.digital).
+A Jekyll theme based on the [UI Kit](https://github.com/italia/design-ui-kit)
+and built with [Bootstrap Italia](https://github.com/italia/bootstrap-italia/).
 
 ## Getting started
 
-Use our deploy button to get your own copy of the repository. 
+The theme itself is a starting point for a Jekyll-based website. You can refer
+to the [official Jekyll docs](https://jekyllrb.com/docs/) for further details
+on how to install it locally.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/decaporg/one-click-hugo-cms&stack=cms)
+If you already have `bundler` installed, you can install jekyll and budler gems
+with:
 
-This will setup everything needed for running the CMS:
+`bundle install`
 
-* A new repository in your GitHub account with the code
-* Full Continuous Deployment to Netlify's global CDN network
-* Control users and access with Netlify Identity
-* Manage content with Decap CMS
+However, if you want to install the dependencies locally you can run:
 
-Once the initial build finishes, you can invite yourself as a user. Go to the Identity tab in your new site, click "Invite" and send yourself an invite.
+`bundle install --path vendor/bundle`
 
-Now you're all set, and you can start editing content!
+You can build the site and make it available on a local server with:
 
-## Local Development
+`bundle exec jekyll serve --config {_config.yml, _config_dev.yml}`
 
-Clone this repository, and run `yarn` or `npm install` from the new folder to install all required dependencies.
+picking one of the two config files where:
 
-Then start the development server with `yarn start` or `npm start`.
+*  _config.yml is the production file
+*  _config_dev.yml is the development file.
 
-## Testing
+### Notes
 
-With the development server running, run the tests locally
-with `yarn cypress:run` or `npm run cypress:run`.
-Or use `yarn cypress:open` or `npm run cypress:open` to run interactively.
+You can run the server just with `bundle exec jekyll serve`: the webiste will
+be available on http://localhost:4000/design-jeyll-theme. This is the default
+settings to allow usage with GitHub pages.
 
-Cypress tests also run on deploy with the [Cypress Netlify integration](https://www.netlify.com/integrations/cypress/).
+The aforementioned addition of `_config_dev.yml` is needed to run the server on
+http://localhost:4000 without any subpath.
 
-## Layouts
-
-The template is based on small, content-agnostic partials that can be mixed and matched. The pre-built pages showcase just a few of the possible combinations. Refer to the `site/layouts/partials` folder for all available partials.
-
-Use Hugo’s `dict` functionality to feed content into partials and avoid repeating yourself and creating discrepancies.
-
-## CSS
-
-The template uses a custom fork of Tachyons and PostCSS with cssnext and cssnano. To customize the template for your brand, refer to `src/css/imports/_variables.css` where most of the important global variables like colors and spacing are stored.
-
-## SVG Social Icons
-
-The social media icons are in `site/assets/img`.
-Make sure you use consistent icons in terms of viewport and art direction for optimal results.
-For an icon named `icons-facebook.svg`, refer to the SVG `social-icon` partial like so:
-
-```
-{{ partial "social-icon" (dict "link" "#" "svg" "icons-facebook" "alt" "Kaldi on Facebook") }}
-```
+# License
+This repository is licensed with a BSD-3-Clause license. Please check the
+[LICENSE](LICENSE) file to know more details about this.
